@@ -1,0 +1,19 @@
+[build]
+  command = "npx prisma generate && next build"
+  publish = ".next"
+
+[build.environment]
+  DATABASE_URL = "file:./prisma/dev.db"
+  NEXTAUTH_SECRET = "super-secret-jwt-key-splitwise-roommates-2026-auth-token"
+  NODE_VERSION = "20"
+
+[context.production.environment]
+  DATABASE_URL = "file:./prisma/dev.db"
+  NEXTAUTH_SECRET = "super-secret-jwt-key-splitwise-roommates-2026-auth-token"
+
+[context.deploy-preview.environment]
+  DATABASE_URL = "file:./prisma/dev.db"
+  NEXTAUTH_SECRET = "super-secret-jwt-key-splitwise-roommates-2026-auth-token"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
